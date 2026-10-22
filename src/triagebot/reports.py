@@ -9,6 +9,7 @@ from pathlib import Path
 
 @dataclass(frozen=True)
 class TestResult:
+    __test__ = False  # a data class, not a pytest test class
     id: str            # "<classname>.<name>"
     status: str        # passed | failed | error | skipped
     error_type: str = ""
