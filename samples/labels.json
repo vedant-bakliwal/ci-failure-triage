@@ -1,0 +1,11 @@
+{
+  "com.shop.tests.CheckoutTests.totalIncludesTax": "product",
+  "com.shop.tests.CheckoutTests.totalIncludesTaxForMultipleItems": "product",
+  "com.shop.tests.OrderApiTests.createOrderReturns201": "product",
+  "com.shop.tests.InventoryTests.reserveStock": "environment",
+  "com.shop.tests.InventoryTests.releaseStock": "environment",
+  "com.shop.tests.CartUiTests.addToCartButton": "test",
+  "com.shop.tests.LoyaltyTests.pointsAwardedOnOrder": "test",
+  "com.shop.tests.SearchTests.searchReturnsResults": "flaky",
+  "com.shop.tests.SessionTests.tokenRefresh": "flaky"
+}

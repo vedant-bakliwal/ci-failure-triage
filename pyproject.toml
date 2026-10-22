@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ci-failure-triage"
+version = "0.1.0"
+description = "Triage CI test failures from JUnit XML: cluster by root cause, label product/test/environment/flaky using rerun history, and post a PR summary."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Vedant Bakliwal" }]
+dependencies = []
+
+[project.optional-dependencies]
+bedrock = ["boto3>=1.35"]
+
+dev = ["pytest>=8"]
+
+[project.scripts]
+triagebot = "triagebot.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "tests"]

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="shop-regression-rerun" tests="9" failures="3" errors="4" skipped="0" timestamp="2026-10-20T14:02:11">
+    <testcase classname="com.shop.tests.CheckoutTests" name="totalIncludesTax" time="0.8">
+      <failure type="java.lang.AssertionError" message="expected [108.25] but found [100.0]"><![CDATA[java.lang.AssertionError: expected [108.25] but found [100.0]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.assertEquals(Assert.java:654)
+	at com.shop.tests.CheckoutTests.totalIncludesTax(CheckoutTests.java:42)]]></failure>
+    </testcase>
+    <testcase classname="com.shop.tests.CheckoutTests" name="totalIncludesTaxForMultipleItems" time="0.9">
+      <failure type="java.lang.AssertionError" message="expected [216.5] but found [200.0]"><![CDATA[java.lang.AssertionError: expected [216.5] but found [200.0]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.assertEquals(Assert.java:654)
+	at com.shop.tests.CheckoutTests.totalIncludesTaxForMultipleItems(CheckoutTests.java:58)]]></failure>
+    </testcase>
+    <testcase classname="com.shop.tests.OrderApiTests" name="createOrderReturns201" time="0.6">
+      <failure type="java.lang.AssertionError" message="1 expectation failed. Expected status code &lt;201&gt; but was &lt;500&gt;."><![CDATA[java.lang.AssertionError: 1 expectation failed.
+Expected status code <201> but was <500>.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.shop.tests.OrderApiTests.createOrderReturns201(OrderApiTests.java:31)]]></failure>
+    </testcase>
+    <testcase classname="com.shop.tests.InventoryTests" name="reserveStock" time="3.1">
+      <error type="java.net.ConnectException" message="Connection refused: inventory-db/10.0.4.12:5432"><![CDATA[java.net.ConnectException: Connection refused: inventory-db/10.0.4.12:5432
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:262)
+	at com.shop.tests.InventoryTests.reserveStock(InventoryTests.java:27)]]></error>
+    </testcase>
+    <testcase classname="com.shop.tests.InventoryTests" name="releaseStock" time="3.0">
+      <error type="java.net.ConnectException" message="Connection refused: inventory-db/10.0.4.12:5432"><![CDATA[java.net.ConnectException: Connection refused: inventory-db/10.0.4.12:5432
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:262)
+	at com.shop.tests.InventoryTests.releaseStock(InventoryTests.java:44)]]></error>
+    </testcase>
+    <testcase classname="com.shop.tests.CartUiTests" name="addToCartButton" time="1.7">
+      <error type="org.openqa.selenium.NoSuchElementException" message="no such element: Unable to locate element: css selector #add-to-cart"><![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"#add-to-cart"}
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at com.shop.tests.pages.ProductPage.addToCart(ProductPage.java:19)
+	at com.shop.tests.CartUiTests.addToCartButton(CartUiTests.java:22)]]></error>
+    </testcase>
+    <testcase classname="com.shop.tests.LoyaltyTests" name="pointsAwardedOnOrder" time="0.2">
+      <error type="java.lang.NullPointerException" message="Cannot invoke &quot;com.shop.tests.data.Customer.getId()&quot; because &quot;customer&quot; is null"><![CDATA[java.lang.NullPointerException: Cannot invoke "com.shop.tests.data.Customer.getId()" because "customer" is null
+	at com.shop.tests.data.TestDataFactory.loyaltyOrder(TestDataFactory.java:71)
+	at com.shop.tests.LoyaltyTests.pointsAwardedOnOrder(LoyaltyTests.java:35)]]></error>
+    </testcase>
+    <testcase classname="com.shop.tests.SearchTests" name="searchReturnsResults" time="2.4"/>
+    <testcase classname="com.shop.tests.SessionTests" name="tokenRefresh" time="1.1"/>
+</testsuite>

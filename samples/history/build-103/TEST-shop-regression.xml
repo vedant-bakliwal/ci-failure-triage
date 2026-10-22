@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="shop-regression" tests="24" failures="0" errors="0" skipped="0" timestamp="2026-10-20T14:02:11">
+    <testcase classname="com.shop.tests.CheckoutTests" name="appliesDiscountCode" time="0.4"/>
+    <testcase classname="com.shop.tests.CheckoutTests" name="rejectsExpiredCard" time="0.4"/>
+    <testcase classname="com.shop.tests.OrderApiTests" name="getOrderReturns200" time="0.4"/>
+    <testcase classname="com.shop.tests.OrderApiTests" name="cancelOrderReturns204" time="0.4"/>
+    <testcase classname="com.shop.tests.OrderApiTests" name="createOrderRejectsEmptyCart" time="0.4"/>
+    <testcase classname="com.shop.tests.InventoryTests" name="stockLevelEndpoint" time="0.4"/>
+    <testcase classname="com.shop.tests.CartUiTests" name="cartBadgeShowsCount" time="0.4"/>
+    <testcase classname="com.shop.tests.CartUiTests" name="emptyCartMessage" time="0.4"/>
+    <testcase classname="com.shop.tests.SearchTests" name="searchNoResultsMessage" time="0.4"/>
+    <testcase classname="com.shop.tests.SearchTests" name="searchFiltersByCategory" time="0.4"/>
+    <testcase classname="com.shop.tests.SessionTests" name="loginWithValidUser" time="0.4"/>
+    <testcase classname="com.shop.tests.SessionTests" name="logoutClearsSession" time="0.4"/>
+    <testcase classname="com.shop.tests.LoyaltyTests" name="pointsBalanceShown" time="0.4"/>
+    <testcase classname="com.shop.tests.ProfileTests" name="updateShippingAddress" time="0.4"/>
+    <testcase classname="com.shop.tests.ProfileTests" name="changePasswordRequiresCurrent" time="0.4"/>
+    <testcase classname="com.shop.tests.CheckoutTests" name="totalIncludesTax" time="0.8"/>
+    <testcase classname="com.shop.tests.CheckoutTests" name="totalIncludesTaxForMultipleItems" time="0.9"/>
+    <testcase classname="com.shop.tests.OrderApiTests" name="createOrderReturns201" time="0.6"/>
+    <testcase classname="com.shop.tests.InventoryTests" name="reserveStock" time="0.5"/>
+    <testcase classname="com.shop.tests.InventoryTests" name="releaseStock" time="0.5"/>
+    <testcase classname="com.shop.tests.CartUiTests" name="addToCartButton" time="1.7"/>
+    <testcase classname="com.shop.tests.LoyaltyTests" name="pointsAwardedOnOrder" time="0.3"/>
+    <testcase classname="com.shop.tests.SearchTests" name="searchReturnsResults" time="2.2"/>
+    <testcase classname="com.shop.tests.SessionTests" name="tokenRefresh" time="1.1"/>
+</testsuite>

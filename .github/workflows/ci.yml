@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install
+        run: pip install -e ".[dev]"
+      - name: Unit tests
+        run: pytest -q
+      - name: Label accuracy on the sample set
+        run: triagebot evaluate --labels samples/labels.json --reports "samples/run/*.xml" --rerun "samples/rerun/*.xml" --history "samples/history/*/*.xml"
+      - name: Triage the sample run (shown in the job summary)
+        run: triagebot analyze --reports "samples/run/*.xml" --rerun "samples/rerun/*.xml" --history "samples/history/*/*.xml" --github-summary
+      - name: Comment on the pull request
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: triagebot analyze --reports "samples/run/*.xml" --rerun "samples/rerun/*.xml" --history "samples/history/*/*.xml" --pr-comment ${{ github.event.pull_request.number }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: triage
+          path: out/
